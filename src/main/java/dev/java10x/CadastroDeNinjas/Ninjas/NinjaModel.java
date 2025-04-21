@@ -2,11 +2,17 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table(name = "tb_cadastro")
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class NinjaModel {
 
     @Id
@@ -25,7 +31,6 @@ public class NinjaModel {
     @JoinColumn(name = "missoes_id") // foreing key - chave estrangeira.
     private MissoesModel missoes;
 
-    public NinjaModel() {
-    }
+
 
 }
