@@ -16,22 +16,23 @@ public class MissoesController {
     }
 
     // CRIANDO AS MISSOES (CREATE)  -- POST -- MANDAR UMA REQUISIÇÃO PARA CRIAR AS MISSOES
-    @PostMapping("/criar")
-    public String criarMissao() {
-        return "Missão Criada com Sucesso!";
+    @PostMapping("/add")
+    public MissoesModel criarMissao (@RequestBody MissoesModel missoesModel){
+        return missoesService.criarMissao(missoesModel);
     }
 
     // MOSTRAR TODAS AS MISSOES (READ) -- GET -- MANDAR UMA REQUISIÇÃO PARA MOSTRAR AS MISSOES
-    @GetMapping("/todas")
+    @GetMapping("/listar")
     public List<MissoesModel>Listar(){
         return missoesService.Listar();
     }
 
     // Procurar MISSOES por ID (READ)
-    @GetMapping("/todasID")
-    public String mostrarTodasAsMissoesPorId(){
-        return "Mostrando as Missões por ID!";
+    @GetMapping("/listar/{id}")
+    public MissoesModel listarPorId(@PathVariable Long id){
+        return missoesService.listarPorId(id);
     }
+
 
     // Alterar dados das MISSOES (UPDATE) -- PUT -- REQUISIÇÃO PARA ALTERAR AS MISSOES
     @PutMapping("/alterarID")
