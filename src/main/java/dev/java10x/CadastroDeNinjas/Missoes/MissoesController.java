@@ -1,6 +1,4 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
-
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,10 +32,10 @@ public class MissoesController {
     }
 
 
-    // Alterar dados das MISSOES (UPDATE) -- PUT -- REQUISIÇÃO PARA ALTERAR AS MISSOES
-    @PutMapping("/alterarID")
-    public String alterarMissaoPorId(){
-        return "Alterar Missões por ID";
+    // alterar ninja
+    @PutMapping("/alterar/{id}")
+    public MissoesModel alterarMissaoPorId(@PathVariable Long id, @RequestBody MissoesModel missoesAtualizado){
+        return missoesService.atualizarMissao(id, missoesAtualizado);
     }
 
 

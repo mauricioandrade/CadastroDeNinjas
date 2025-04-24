@@ -1,6 +1,4 @@
 package dev.java10x.CadastroDeNinjas.Missoes;
-
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +31,13 @@ public class MissoesService {
 
     // deletar missao por id - tem que ser um metodo void
     public void deletarMissaoPorId(Long id) {
-        missoesRepository.deleteById(id);
+            missoesRepository.deleteById(id);
+    }
+    public MissoesModel atualizarMissao(Long id, MissoesModel missoesAtualizado){
+        if (missoesRepository.existsById(id)){
+            missoesAtualizado.setId(id);
+            missoesRepository.save(missoesAtualizado);
+        }
+        return null;
     }
 }
