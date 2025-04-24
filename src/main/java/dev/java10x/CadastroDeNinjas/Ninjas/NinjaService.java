@@ -10,9 +10,12 @@ public class NinjaService {
 
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     // LISTAR todos os meus ninjas
@@ -27,10 +30,12 @@ public class NinjaService {
     }
 
     // salvar o ninja
-   public NinjaModel criarNinja(NinjaModel ninjaModel){
-        return ninjaRepository.save(ninjaModel);
-
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninjaModel = ninjaMapper.map(ninjaDTO);
+      ninjaModel = ninjaRepository.save(ninjaModel);
+        return ninjaMapper.map(ninjaModel);
     }
+
 
     // deletar ninja por id - tem que ser um metodo void
     public void deletarNinjaPorId(Long id) {
@@ -46,6 +51,3 @@ public class NinjaService {
         return null;
     }
 }
-
-
-
