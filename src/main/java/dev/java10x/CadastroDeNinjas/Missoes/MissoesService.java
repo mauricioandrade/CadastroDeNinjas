@@ -49,7 +49,7 @@ public class MissoesService {
         if (missaoExistente.isPresent()) {
             MissoesModel missaoAtualizada = missoesMapper.map(missoesDTO);
             missaoAtualizada.setId(id);
-            NinjaModel missaoSalva = missoesRepository.save(missaoAtualizada);
+            MissoesModel missaoSalva = missoesRepository.save(missaoAtualizada);
             return missoesMapper.map(missaoSalva);
         }
         return null;
