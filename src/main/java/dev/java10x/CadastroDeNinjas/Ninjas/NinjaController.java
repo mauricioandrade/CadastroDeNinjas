@@ -19,7 +19,7 @@ public class NinjaController {
 
 
     // Adicionar Ninjas (CREATE)
-    @PostMapping("/add")
+    @PostMapping("/criar")
     public ResponseEntity<String> criarNinja(@RequestBody NinjaDTO ninjaModel) {
         NinjaDTO ninjaDTO = ninjaService.criarNinja(ninjaModel);
         return ResponseEntity.status(HttpStatus.CREATED)
