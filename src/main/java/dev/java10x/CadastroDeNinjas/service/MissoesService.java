@@ -1,6 +1,8 @@
-package dev.java10x.CadastroDeNinjas.Missoes;
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaDTO;
-import dev.java10x.CadastroDeNinjas.Ninjas.NinjaModel;
+package dev.java10x.CadastroDeNinjas.service;
+import dev.java10x.CadastroDeNinjas.dto.MissoesDTO;
+import dev.java10x.CadastroDeNinjas.repository.MissoesRepository;
+import dev.java10x.CadastroDeNinjas.entity.MissoesModel;
+import dev.java10x.CadastroDeNinjas.mapper.MissoesMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +13,7 @@ import java.util.stream.Collectors;
 public class MissoesService {
 
     private final MissoesRepository missoesRepository;
-    private  MissoesMapper missoesMapper;
+    private MissoesMapper missoesMapper;
 
     public MissoesService(MissoesRepository missoesRepository) {
         this.missoesRepository = missoesRepository;

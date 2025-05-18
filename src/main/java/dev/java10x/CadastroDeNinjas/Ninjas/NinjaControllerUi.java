@@ -1,5 +1,7 @@
 
 package dev.java10x.CadastroDeNinjas.Ninjas;
+import dev.java10x.CadastroDeNinjas.dto.NinjaDTO;
+import dev.java10x.CadastroDeNinjas.service.NinjaService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
